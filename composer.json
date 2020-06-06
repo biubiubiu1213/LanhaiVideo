@@ -1,0 +1,14 @@
+{
+    "name": "planck/lanhai-video",
+    "description": "蓝海视频解析器",
+    "authors": [
+        {
+            "name": "保护我方普朗克",
+            "email": "1090438539@qq.com"
+        }
+    ],
+    "require": {
+        "php-curl-class/php-curl-class": "^8.8",
+        "guzzlehttp/guzzle": "6.4"
+    }
+}
