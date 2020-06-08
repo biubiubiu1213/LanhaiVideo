@@ -12,7 +12,7 @@
         "php" : ">=7.0",
         "ext-json": "*",
         "php-curl-class/php-curl-class": "^8.8",
-        "guzzlehttp/guzzle": "6.4"
+        "guzzlehttp/guzzle": "*"
     },
     "autoload": {
         "psr-4": {
