@@ -8,7 +8,14 @@
         }
     ],
     "require": {
+        "php" : ">=7.0",
+        "ext-json": "*",
         "php-curl-class/php-curl-class": "^8.8",
         "guzzlehttp/guzzle": "6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "LanhaiVideo\\App\\": "app"
+        }
     }
 }
