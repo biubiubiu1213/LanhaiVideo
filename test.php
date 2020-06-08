@@ -6,6 +6,7 @@ include 'vendor/autoload.php';
 
 $url = [
     'https://v.douyin.com/JeHmpxv/',
+    'https://www.iesdouyin.com/share/video/6835458954647129348/?region=CN&mid=6835459141868292871&u_code=0&titleType=title',
     'https://v.kuaishou.com/78fmkt',
     'https://share.huoshan.com/hotsoon/s/BBc31YnVU88/',
     'https://h5.pipix.com/s/JeHuQmP/',
@@ -14,16 +15,26 @@ $url = [
     'http://www.meipai.com/media/1204538229?client_id=1089857302&utm_media_id=1204538229&utm_source=meipai_share&utm_term=meipai_android&gid=2254440015',
 ];
 
+$ks = [
+    'https://v.kuaishou.com/4Vhteb',
+    'https://v.kuaishou.com/8jARat',
+    'https://v.kuaishou.com/8hwJK2',
+    'https://v.kuaishou.com/6nKmM5',
+    'https://v.kuaishou.com/9gfsKX'
+];
 
 $proxy = file_get_contents('http://dynamic.goubanjia.com/dynamic/get/86d29e1c02af8acea38baba02b2a277f.html?sep=3');
 $proxy = trim($proxy,"\r");
 $proxy = trim($proxy,"\n");
 $proxy = explode(':',$proxy);
 $proxy = ['ip' => $proxy[0], 'port' => $proxy[1]];
-$proxy = [];
-foreach ($url as $item) {
+//$proxy = [];
+//$res = (new Video($url[2],'GuzzleHttp',$proxy))->check();
+//var_dump($res);
+//$proxy = [];
+foreach ($ks as $item) {
 //    $res = (new Video($item,'CurlHttp',$proxy))->check();
-    $res = (new Video($item,'GuzzleHttp',$proxy))->check();
+    $res = (new Video($item,'CurlHttp',$proxy))->check();
     var_dump($res);
 }
 

@@ -13,12 +13,16 @@ class GuzzleHttp
 
     public function __construct($proxy)
     {
-        $guzzle = new Client([
-            'timeout'   =>  5.0
-        ]);
+        $setting = [
+            'timeout'   =>  10.0
+        ];
         if ($proxy) {
-            $guzzle->setProxyHttp($proxy['ip'],$proxy['port']);
+            $setting['proxy'] = [
+                'http' => $proxy['ip'] . ':' . $proxy['port']
+            ];
+//            $guzzle->setProxyHttp($proxy['ip'],$proxy['port']);
         }
+        $guzzle = new Client($setting);
         $this->guzzle = $guzzle;
     }
 
@@ -121,6 +125,7 @@ class GuzzleHttp
      */
     public function request($method, $url, $params = [])
     {
+        echo "request\r\n";
         return $this->unwrapResponse($this->guzzle->{$method}($url, $params));
     }
 
