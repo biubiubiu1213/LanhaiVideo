@@ -53,7 +53,7 @@ class MeiPai extends Base
         $hex = $this->getHex($videoMatches[1]);
         $arr = $this->getDec($hex[0]);
         $d = $this->subStr($arr[0], $hex[1]);
-        $videoUrl = base64_decode($this->subStr(self::getPos($d, $arr[1]), $d));
+        $videoUrl = 'https:' . base64_decode($this->subStr(self::getPos($d, $arr[1]), $d));
 
         return $this->returnData(
             $url,

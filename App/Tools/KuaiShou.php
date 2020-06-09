@@ -31,6 +31,8 @@ class KuaiShou extends Base
      */
     public function start(string $url): array
     {
+//        $res = $this->http->get('http://www.baidu.com');
+//        dump($res);
         if (empty($url)) {
             return ["{KuaiShou} url cannot be empty"];
         }
@@ -41,16 +43,18 @@ class KuaiShou extends Base
 
         $contents = $this->http->get($url, [], [
             'User-Agent' => self::ANDROID_USER_AGENT,
-            'cookie' => 'did=web_00536bb16309421a93a09c3e4998aa04; didv=' . time() . '000; clientid=3; client_key=6589' . rand(1000, 9999),
+            'cookie' => 'did=web_00536bb16309421a93a09c3e4998aa05; didv=' . time() . '000; clientid=3; client_key=6589' . rand(1000, 9999),
         ]);
-//        dump($contents);
+//        var_dump($this->http);
         preg_match('/data-pagedata="(.*?)"/i', $contents, $match);
         if ($this->checkEmptyMatch($match)) {
             return ["{KuaiShou} contents parsing failed"];
         }
         $contents = htmlspecialchars_decode($match[1]);
         $data = json_decode($contents, true);
+        file_put_contents('2.json',$contents);
 
+//        die;
         return $this->returnData(
             $url,
             isset($data['user']['name']) ? $data['user']['name'] : '',

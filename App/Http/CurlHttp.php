@@ -8,9 +8,16 @@ use function LanhaiVideo\App\dump;
 
 class CurlHttp
 {
-
+    /**
+     * @var Curl
+     */
     public $curl;
 
+    /**
+     * CurlHttp constructor.
+     * @param $proxy
+     * @throws \ErrorException
+     */
     public function __construct($proxy)
     {
         $curl = new Curl();
@@ -113,6 +120,10 @@ class CurlHttp
         return $this->unwrapResponse($curl);
     }
 
+    /**
+     * @param $curl
+     * @return mixed|string
+     */
     public function unwrapResponse($curl)
     {
         $contentType = $curl->getResponseHeaders()['Content-Type'];

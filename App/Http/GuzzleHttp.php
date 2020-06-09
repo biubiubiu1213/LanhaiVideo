@@ -5,12 +5,19 @@ namespace LanhaiVideo\App\Http;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
+use function LanhaiVideo\App\dump;
 
 class GuzzleHttp
 {
-
+    /**
+     * @var Client
+     */
     public $guzzle;
 
+    /**
+     * GuzzleHttp constructor.
+     * @param $proxy
+     */
     public function __construct($proxy)
     {
         $setting = [
@@ -20,18 +27,10 @@ class GuzzleHttp
             $setting['proxy'] = [
                 'http' => $proxy['ip'] . ':' . $proxy['port']
             ];
-//            $guzzle->setProxyHttp($proxy['ip'],$proxy['port']);
         }
         $guzzle = new Client($setting);
         $this->guzzle = $guzzle;
     }
-
-    //基础URL
-    private $baseUri;
-
-    //超时时间
-    private $timeout;
-
     /**
      * 公共GET方法
      * @param $url
@@ -96,26 +95,6 @@ class GuzzleHttp
         return $this->request('post', $url, $options);
     }
 
-    public function getBaseOptions()
-    {
-        $options = [
-            'base_uri' => property_exists($this, 'baseUri') ? $this->baseUri : '',
-            'timeout' => property_exists($this, 'timeout') ? $this->timeout : 5.0,
-        ];
-        return $options;
-    }
-
-    /**
-     * 创建一个客户端
-     * @param array $options
-     * @return Client
-     */
-    public function getHttpClient(array $options = [])
-    {
-        $guzzle = new Client($options);
-        return new Client($options);
-    }
-
     /**
      * 公共请求方法
      * @param $method string 方法 | GET | POST
@@ -125,10 +104,13 @@ class GuzzleHttp
      */
     public function request($method, $url, $params = [])
     {
-        echo "request\r\n";
         return $this->unwrapResponse($this->guzzle->{$method}($url, $params));
     }
 
+    /**
+     * @param ResponseInterface $response
+     * @return mixed|string
+     */
     public function unwrapResponse(ResponseInterface $response)
     {
         $contentType = $response->getHeaderLine('Content-Type');
