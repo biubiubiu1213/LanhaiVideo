@@ -1,7 +1,7 @@
 <?php
 
 
-namespace LanhaiVideo\app\Tools;
+namespace LanhaiVideo\App\Tools;
 
 
 class Base

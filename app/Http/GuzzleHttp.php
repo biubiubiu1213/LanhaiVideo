@@ -1,7 +1,7 @@
 <?php
 declare (strict_types=1);
 
-namespace LanhaiVideo\app\Http;
+namespace LanhaiVideo\App\Http;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;

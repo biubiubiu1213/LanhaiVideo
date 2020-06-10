@@ -1,6 +1,6 @@
 <?php
 
-namespace LanhaiVideo\app;
+namespace LanhaiVideo\App;
 
 include 'vendor/autoload.php';
 

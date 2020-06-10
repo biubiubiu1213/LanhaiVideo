@@ -1,7 +1,7 @@
 <?php
 declare (strict_types=1);
 
-namespace LanhaiVideo\app\Tools;
+namespace LanhaiVideo\App\Tools;
 
 
 /**
