@@ -1,6 +1,6 @@
 <?php
 
-namespace LanhaiVideo\app;
+namespace LanhaiVideo\App;
 
 class Video
 {
