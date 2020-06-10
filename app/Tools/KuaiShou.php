@@ -1,11 +1,10 @@
 <?php
 declare (strict_types=1);
 
-namespace LanhaiVideo\App\Tools;
+namespace LanhaiVideo\app\Tools;
 
 use Smalls\VideoTools\Exception\ErrorVideoException;
 use Smalls\VideoTools\Interfaces\IVideo;
-use function LanhaiVideo\App\dump;
 
 /**
  * Created By 1

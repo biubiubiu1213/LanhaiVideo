@@ -1,11 +1,10 @@
 <?php
 declare (strict_types=1);
 
-namespace LanhaiVideo\App\Http;
+namespace LanhaiVideo\app\Http;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
-use function LanhaiVideo\App\dump;
 
 class GuzzleHttp
 {

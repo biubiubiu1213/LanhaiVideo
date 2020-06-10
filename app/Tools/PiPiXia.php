@@ -1,7 +1,7 @@
 <?php
 declare (strict_types=1);
 
-namespace LanhaiVideo\App\Tools;
+namespace LanhaiVideo\app\Tools;
 /**
  * Created By 1
  * Author：smalls

@@ -1,10 +1,9 @@
 <?php
 declare (strict_types=1);
 
-namespace LanhaiVideo\App\Http;
+namespace LanhaiVideo\app\Http;
 
 use Curl\Curl;
-use function LanhaiVideo\App\dump;
 
 class CurlHttp
 {

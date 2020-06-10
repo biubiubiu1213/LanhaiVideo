@@ -1,13 +1,14 @@
 <?php
 
-namespace LanhaiVideo\App;
+namespace LanhaiVideo\app;
 
 include 'vendor/autoload.php';
 
 $url = [
-    'https://v.douyin.com/JeHmpxv/',
-    'https://www.iesdouyin.com/share/video/6835458954647129348/?region=CN&mid=6835459141868292871&u_code=0&titleType=title',
-    'https://v.kuaishou.com/78fmkt',
+//    'https://v.douyin.com/JeHmpxv/',
+//    'https://www.iesdouyin.com/share/video/6835458954647129348/?region=CN&mid=6835459141868292871&u_code=0&titleType=title',
+    'https://www.iesdouyin.com/share/video/6835887275902078221/?region=CN&mid=6835887294767958791&u_code=0&titleType=title',
+//    'https://v.kuaishou.com/78fmkt',
 //    'https://share.huoshan.com/hotsoon/s/BBc31YnVU88/',
 //    'https://h5.pipix.com/s/JeHuQmP/',
 //    'https://m.toutiaoimg.cn/a6833270728943469059/?app=news_article&is_hit_share_recommend=0',
@@ -39,7 +40,7 @@ foreach ($url as $item) {
     $proxy = ['ip' => $proxy[0], 'port' => $proxy[1]];
 //    var_dump($proxy);
 //    $proxy = ['ip' => '61.186.66.60', 'port' => '18306'];
-//    $proxy = [];
+    $proxy = [];
 
 
 //    echo "GuzzleHttp：$item";

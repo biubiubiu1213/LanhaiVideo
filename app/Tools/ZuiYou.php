@@ -1,9 +1,8 @@
 <?php
 declare (strict_types=1);
 
-namespace LanhaiVideo\App\Tools;
+namespace LanhaiVideo\app\Tools;
 
-use function LanhaiVideo\App\dump;
 
 /**
  * Created By 1
