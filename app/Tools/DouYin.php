@@ -39,15 +39,13 @@ class DouYin extends Base
 
         $itemIds = null;
         if (strpos($url, "iesdouyin.com") === false) {
-            $contents = $this->http->get($url, [], [
+            $contents = $this->http->dyGet($url, [], [
                 'User-Agent' => self::ANDROID_USER_AGENT,
             ]);
-
-            preg_match('/itemId:[^+]"(.*?)",/i', $contents, $itemIds);
+            preg_match('/\/video\/(.*?)\//', $contents, $itemIds);
         }else{
             preg_match('/\/video\/(.*?)\//', $url, $itemIds);
         }
-
 
         if ($itemIds == null) {
             return ["{DouYin} dyTk or itemId is empty, there may be a problem with the website"];

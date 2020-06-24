@@ -45,6 +45,15 @@ class CurlHttp
         return $res;
     }
 
+    public function dyGet($url, $query = [], $headers = [])
+    {
+        $curl = $curl ?? $this->curl;
+        $curl->setHeaders($headers);
+        $curl->setReferer($url);
+        $curl->get($url, $query);
+        return $this->unwrapResponse($curl);
+    }
+
     /**
      * 公共GET方法
      * @param $url
