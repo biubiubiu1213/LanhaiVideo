@@ -6,7 +6,7 @@ include 'vendor/autoload.php';
 
 $url = [
     'https://v.douyin.com/JeHmpxv/',
-    'https://www.iesdouyin.com/share/video/6835887275902078221/?region=CN&mid=6835887294767958791&u_code=0&titleType=title',
+//    'https://www.iesdouyin.com/share/video/6835887275902078221/?region=CN&mid=6835887294767958791&u_code=0&titleType=title',
 //    'https://v.kuaishou.com/78fmkt',
 //    'https://share.huoshan.com/hotsoon/s/BBc31YnVU88/',
 //    'https://h5.pipix.com/s/JeHuQmP/',

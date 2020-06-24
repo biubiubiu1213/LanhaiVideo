@@ -13,7 +13,7 @@ class Base
 
     public $app = "LanhaiVideo\App";
 
-    protected function returnData(string $url, string $userName, string $userHeadPic, string $desc, string $videoImage, string $videoUrl, string $type): array
+    protected function returnData(string $url, string $userName, string $userHeadPic, string $desc, string $videoImage, string $videoUrl, string $type, string $itemIds): array
     {
         return [
             'md5' => md5($url),
@@ -23,7 +23,8 @@ class Base
             'desc' => $desc,
             'img_url' => $videoImage,
             'video_url' => $videoUrl,
-            'type' => $type
+            'type' => $type,
+            'itemIds'  =>  $itemIds
         ];
     }
 

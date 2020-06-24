@@ -58,7 +58,7 @@ class DouYin extends Base
             'Referer' => "https://www.iesdouyin.com",
             'Host' => "www.iesdouyin.com",
         ]);
-
+//        var_dump($contents);die;
         if ((isset($contents['status_code']) && $contents['status_code'] != 0) || empty($contents['item_list'][0]['video']['play_addr']['uri'])) {
             return ["{DouYin} parsing failed"];
         }
@@ -80,7 +80,8 @@ class DouYin extends Base
             isset($contents['item_list'][0]['desc']) ? $contents['item_list'][0]['desc'] : '',
             isset($contents['item_list'][0]['video']['cover']['url_list'][0]) ? $contents['item_list'][0]['video']['cover']['url_list'][0] : '',
             $videoUrl,
-            'video'
+            'video',
+            $itemIds[1]
         );
     }
 
