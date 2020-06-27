@@ -58,10 +58,11 @@ class DouYin extends Base
             'Referer' => "https://www.iesdouyin.com",
             'Host' => "www.iesdouyin.com",
         ]);
-//        var_dump($contents);die;
         if ((isset($contents['status_code']) && $contents['status_code'] != 0) || empty($contents['item_list'][0]['video']['play_addr']['uri'])) {
             return ["{DouYin} parsing failed"];
         }
+
+//        echo json_encode($contents);die;
 
 
         $videoUrl = $this->http->redirects('https://aweme.snssdk.com/aweme/v1/play/', [
@@ -72,17 +73,18 @@ class DouYin extends Base
             'User-Agent' => self::ANDROID_USER_AGENT,
             'host' => 'aweme.snssdk.com'
         ]);
-
-        return $this->returnData(
-            $url,
-            isset($contents['item_list'][0]['author']['nickname']) ? $contents['item_list'][0]['author']['nickname'] : '',
-            isset($contents['item_list'][0]['author']['avatar_larger']['url_list'][0]) ? $contents['item_list'][0]['author']['avatar_larger']['url_list'][0] : '',
-            isset($contents['item_list'][0]['desc']) ? $contents['item_list'][0]['desc'] : '',
-            isset($contents['item_list'][0]['video']['cover']['url_list'][0]) ? $contents['item_list'][0]['video']['cover']['url_list'][0] : '',
-            $videoUrl,
-            'video',
-            $itemIds[1]
-        );
+        return [
+            'md5' => md5($url),
+            'message' => $url,
+            'user_name' => isset($contents['item_list'][0]['author']['nickname']) ? $contents['item_list'][0]['author']['nickname'] : '',
+            'user_head_img' => isset($contents['item_list'][0]['author']['avatar_larger']['url_list'][0]) ? $contents['item_list'][0]['author']['avatar_larger']['url_list'][0] : '',
+            'desc' => isset($contents['item_list'][0]['desc']) ? $contents['item_list'][0]['desc'] : '',
+            'img_url' => isset($contents['item_list'][0]['video']['cover']['url_list'][0]) ? $contents['item_list'][0]['video']['cover']['url_list'][0] : '',
+            'video_url' => $videoUrl,
+            'type' => 'video',
+            'itemIds'  =>  $itemIds[1],
+            'music' =>  $contents['item_list'][0]['music']['play_url']['uri'] ?? ''
+        ];
     }
 
     public function dyCurl($url) {
