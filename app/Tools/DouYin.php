@@ -62,8 +62,6 @@ class DouYin extends Base
             return ["{DouYin} parsing failed"];
         }
 
-//        echo json_encode($contents);die;
-
 
         $videoUrl = $this->http->redirects('https://aweme.snssdk.com/aweme/v1/play/', [
             'video_id' => $contents['item_list'][0]['video']['play_addr']['uri'],
@@ -83,7 +81,8 @@ class DouYin extends Base
             'video_url' => $videoUrl,
             'type' => 'video',
             'itemIds'  =>  $itemIds[1],
-            'music' =>  $contents['item_list'][0]['music']['play_url']['uri'] ?? ''
+            'music' =>  $contents['item_list'][0]['music']['play_url']['uri'] ?? '',
+            'music_author'  =>  $contents['item_list'][0]['music']['title'] ?? ''
         ];
     }
 
