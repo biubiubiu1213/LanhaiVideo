@@ -82,7 +82,8 @@ class DouYin extends Base
             'type' => 'video',
             'itemIds'  =>  $itemIds[1],
             'music' =>  $contents['item_list'][0]['music']['play_url']['uri'] ?? '',
-            'music_author'  =>  $contents['item_list'][0]['music']['title'] ?? ''
+            'music_author'  =>  $contents['item_list'][0]['music']['title'] ?? '',
+            'music_bg'  =>  $contents['item_list'][0]['music']['cover_thumb']['url_list'][0] ?? ''
         ];
     }
 
